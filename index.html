@@ -473,7 +473,7 @@
                 </div>
                 <div class="col-lg-7 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <p class="mb-4">I am very interested in working for you,please feel free to <a href="https://wa.me/6282326116157">contact me</a> at any time if further information is needed.</p>
-                    <form>
+                    <form action="" name="contact-us">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
@@ -563,6 +563,18 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <!--Formula GS-->
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyO7mc0M3RP9AysdDlMZa68JEF_G9NvFpNS4oH3_5tCQ3fcsENgAjujzCc6izOrmSfc/exec'
+        const form = document.forms['contact-us']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
 </body>
 
 </html>
