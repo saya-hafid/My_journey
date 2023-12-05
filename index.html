@@ -567,11 +567,13 @@
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbyO7mc0M3RP9AysdDlMZa68JEF_G9NvFpNS4oH3_5tCQ3fcsENgAjujzCc6izOrmSfc/exec'
         const form = document.forms['contact-us']
-      
         form.addEventListener('submit', e => {
           e.preventDefault()
           fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => console.log('Success!', response))
+            .then(response =>{
+                form.reset()
+                alert('Success!')
+            })
             .catch(error => console.error('Error!', error.message))
         })
       </script>
