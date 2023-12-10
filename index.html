@@ -474,7 +474,7 @@
                 <div class="col-lg-7 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <p class="mb-4">I am very interested in working for you,please feel free to <a href="https://wa.me/6282326116157">contact me</a> at any time if further information is needed.</p>
                     
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <div class="alert alert-success alert-dismissible fade show my-alert d-none" role="alert">
                         <strong>Thank You </strong> for Contact Us!
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                       </div>
@@ -505,8 +505,8 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary py-3 px-5" type="submit">Send Message</button>
-                                <button class="btn btn-primary py-3 px-5 d-none" type="button" disabled>
+                                <button class="btn btn-primary py-3 px-5 btn-send" type="submit">Send</button>
+                                <button class="btn btn-primary py-3 px-5 btn-loading d-none" type="button" disabled>
                                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                     Loading...
                                   </button>
@@ -576,6 +576,9 @@
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbyO7mc0M3RP9AysdDlMZa68JEF_G9NvFpNS4oH3_5tCQ3fcsENgAjujzCc6izOrmSfc/exec'
         const form = document.forms['contact-us']
+        const btnSend = document.querySelector('.btn-send');//WPU 1:
+        const btnLoading = document.querySelector('.btn-loading');//WPU 2:
+        const myAlert = document.querySelector('.my-alert');//WPU 3:
         form.addEventListener('submit', e => {
           e.preventDefault()
           fetch(scriptURL, { method: 'POST', body: new FormData(form)})
