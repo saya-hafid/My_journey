@@ -602,6 +602,8 @@
             btnSend.classList.toggle("d-none");
             //tampilkan alert
             myAlert.classList.toggle("d-none");
+            //reset form (tulisan)
+            form.reset();
             console.log('Success!', response)
         })
         .catch(error => console.error('Error!', error.message))
