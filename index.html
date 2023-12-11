@@ -579,7 +579,7 @@
         const btnSend = document.querySelector('.btn-send');//WPU 1:
         const btnLoading = document.querySelector('.btn-loading');//WPU 2:
         const myAlert = document.querySelector('.my-alert');//WPU 3:
-        form.addEventListener('submit', e => {
+        /*form.addEventListener('submit', e => {
           e.preventDefault()
           fetch(scriptURL, { method: 'POST', body: new FormData(form)})
             .then(response =>{
@@ -587,7 +587,17 @@
                 alert('Success!')
             })
             .catch(error => console.error('Error!', error.message))
-        })
+        })*///default
+        form.addEventListener('submit', e => {
+        e.preventDefault()
+        //ketika tombol submit diklik
+        //selama belum sukses tampilkan tombol loading,hilangkan tombol kirim
+        btnLoading.classList.toggle("d-none");
+        btnSend.classList.toggle("d-none");
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+         })
       </script>
 </body>
 
